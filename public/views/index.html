@@ -10,20 +10,28 @@
   <script src="scripts/people.controller.js" charset="utf-8"></script>
 
   <link rel="stylesheet" href="vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="style/styles.css" />
 </head>
 <body ng-controller="PeopleController as ctrl">
   <button ng-click="ctrl.listPeople()">Get People</button>
 
   <ul>
-    <li ng-repeat="person in ctrl.people">
-      <p>{{person.name}}</p>
+    <li ng-repeat="person in ctrl.people" class="list-unstyled">
+      <p>Name: {{person.name}}</p>
+        <p>Hometown: {{person.hometown}}</p>
+        <p>Favorite Movie: {{person.movie}}</p>
     </li>
   </ul>
 
-  <div>
-    <label>Name:</label>
-    <input type="text" ng-model="ctrl.name">
-    <button ng-click="ctrl.addPerson()">Add Person</button>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8" ><label>Name:</label>
+    <input type="text" ng-model="ctrl.name" placeholder="Name"></div>
+    <div class="col-xs-12 col-sm-6 col-md-8" ><label>Hometown:</label>
+    <input type="text" ng-model="ctrl.hometown" placeholder="Hometown"></div>
+    <div class="col-xs-12 col-sm-6 col-md-8" ><label>Favorite Movie:</label>
+    <input type="text" ng-model="ctrl.movie" placeholder="Favorite Movie"></div>
   </div>
+    <button type="button" class="btn btn-primary" ng-click="ctrl.addPerson()">Add Person</button>
+
 </body>
 </html>
